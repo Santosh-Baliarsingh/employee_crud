@@ -59,6 +59,7 @@ export default function EditEmployee(props) {
           id="exampleInputEmpSal"
         />
       </div>
+      <div className="mb-3">
       <button
         onClick={() => {
           props.updateEmployee(emp.eId , emp);
@@ -75,6 +76,7 @@ export default function EditEmployee(props) {
       >
         Cancel
       </button>
+      </div>
     </>
   );
 }

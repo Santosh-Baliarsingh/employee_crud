@@ -49,15 +49,17 @@ export default function AddEmployee(props) {
           id="exampleInputEmpSal"
         />
       </div>
+      <div className="mb-3">
       <button
         onClick={() => {
           const empObj = { eId, name, sal };
           props.addNewEmployee(empObj);
         }}
-        className="btn btn-primary "
+        className="btn btn-primary p-2"
       >
         Add New Employee
       </button>
+      </div>
     </>
   );
 }

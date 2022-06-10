@@ -4,7 +4,7 @@ export default function EmployeeLists(props) {
   return (
     <>
       <div className="text-center h4 fw-bold">EmployeeLists</div>
-      <table className="table table-bordered table-striped">
+      <table className="table table-bordered table-striped table-responsive">
         <thead>
           <tr className="text-center">
             <th>Emp ID</th>
@@ -21,13 +21,13 @@ export default function EmployeeLists(props) {
               <td>{emp.sal}</td>
               <td>
                 <button
-                  className="btn btn-success mx-4"
+                  className="btn btn-success m-2 p-2"
                   onClick={() => props.editEmployee(emp.eId)}
                 >
                   Edit
                 </button>
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-danger m-2 p-2"
                   onClick={() => props.deleteEmployee(emp.eId)}
                 >
                   Delete

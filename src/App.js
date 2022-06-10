@@ -1,8 +1,10 @@
-import { useState } from "react";
+import React ,{ useState } from "react";
 import "./App.css";
 import AddEmployee from "./components/AddEmployee";
 import EditEmployee from "./components/EditEmployee";
 import EmployeeLists from "./components/EmployeeLists";
+import Swal from 'sweetalert2'
+
 
 // Initial Employee data
 const employees = [
@@ -24,7 +26,6 @@ function App() {
   // deleteEmplyee Functionality Here
   const deleteEmployee = (eId) => {
     const filteredArr = empArr.filter((emp) => emp.eId !== eId);
-
     setEmpArr([...filteredArr]);
   };
 
@@ -32,6 +33,11 @@ function App() {
   const addNewEmployee = (empObj) => {
     // debugger;
     setEmpArr([...empArr, empObj]);
+    Swal.fire(	
+      	'Success',
+      'Employee Added Successfully!',	
+      'success'	
+    )
   };
 
   // EditEmployee Functionality Here
@@ -45,6 +51,11 @@ function App() {
   const updateEmployee = (eId , updateEmpObj) =>{
     setIsEdit(false);
     setEmpArr(empArr.map((emp) => (emp.eId === eId ? updateEmpObj : emp)))
+    Swal.fire(	
+      'Success',
+      'Updated Successfully!',	
+      'success'	
+    )
 
   }
 
@@ -55,14 +66,14 @@ function App() {
       </h2>
       <div className="container">
         <div className="row">
-          <div className="col-sm-8">
+          <div className="col-sm-12 col-md-8">
             <EmployeeLists
               empArr={empArr}
               deleteEmployee={deleteEmployee}
               editEmployee={editEmployee}
             ></EmployeeLists>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-12 col-md-4">
             {isEdit ? (
               <EditEmployee currentEmp={currentEmp}
               isEdit = {isEdit}
